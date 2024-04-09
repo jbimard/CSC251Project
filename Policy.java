@@ -1,5 +1,5 @@
 public class Policy {
-    // Attributes
+    // Attribute
     private int policyNumber;
     private String providerName;
     private String policyholderFirstName;
@@ -17,6 +17,7 @@ public class Policy {
      * Default constructor with default values.
      */
     public Policy() {
+        // Default constructor with default values
         policyNumber = 0;
         providerName = "";
         policyholderFirstName = "";
@@ -43,6 +44,7 @@ public class Policy {
      */
     public Policy(int policyNumber, String providerName, String policyholderFirstName, String policyholderLastName,
                   int policyholderAge, String smokingStatus, double heightInches, double weightPounds) {
+        // Constructor with arguments to initialize all fields
         this.policyNumber = policyNumber;
         this.providerName = providerName;
         this.policyholderFirstName = policyholderFirstName;
@@ -75,21 +77,143 @@ public class Policy {
         this.policyNumber = policyNumber;
     }
 
-    // Similar documentation comments for other getters and setters...
-
-    // Other Methods
+    /**
+     * Getter for the name of the insurance provider.
+     *
+     * @return The name of the insurance provider.
+     */
+    public String getProviderName() {
+        return providerName;
+    }
 
     /**
-     * Getter for BMI.
+     * Setter for the name of the insurance provider.
      *
-     * @return The BMI (Body Mass Index) of the policyholder.
+     * @param providerName The name of the insurance provider.
+     */
+    public void setProviderName(String providerName) {
+        this.providerName = providerName;
+    }
+
+    /**
+     * Getter for the first name of the policyholder.
+     *
+     * @return The first name of the policyholder.
+     */
+    public String getPolicyholderFirstName() {
+        return policyholderFirstName;
+    }
+
+    /**
+     * Setter for the first name of the policyholder.
+     *
+     * @param policyholderFirstName The first name of the policyholder.
+     */
+    public void setPolicyholderFirstName(String policyholderFirstName) {
+        this.policyholderFirstName = policyholderFirstName;
+    }
+
+    /**
+     * Getter for the last name of the policyholder.
+     *
+     * @return The last name of the policyholder.
+     */
+    public String getPolicyholderLastName() {
+        return policyholderLastName;
+    }
+
+    /**
+     * Setter for the last name of the policyholder.
+     *
+     * @param policyholderLastName The last name of the policyholder.
+     */
+    public void setPolicyholderLastName(String policyholderLastName) {
+        this.policyholderLastName = policyholderLastName;
+    }
+
+    /**
+     * Getter for the age of the policyholder.
+     *
+     * @return The age of the policyholder.
+     */
+    public int getPolicyholderAge() {
+        return policyholderAge;
+    }
+
+    /**
+     * Setter for the age of the policyholder.
+     *
+     * @param policyholderAge The age of the policyholder.
+     */
+    public void setPolicyholderAge(int policyholderAge) {
+        this.policyholderAge = policyholderAge;
+    }
+
+    /**
+     * Getter for the smoking status of the policyholder.
+     *
+     * @return The smoking status of the policyholder.
+     */
+    public String getSmokingStatus() {
+        return smokingStatus;
+    }
+
+    /**
+     * Setter for the smoking status of the policyholder.
+     *
+     * @param smokingStatus The smoking status of the policyholder.
+     */
+    public void setSmokingStatus(String smokingStatus) {
+        this.smokingStatus = smokingStatus;
+    }
+
+    /**
+     * Getter for the height of the policyholder in inches.
+     *
+     * @return The height of the policyholder in inches.
+     */
+    public double getHeightInches() {
+        return heightInches;
+    }
+
+    /**
+     * Setter for the height of the policyholder in inches.
+     *
+     * @param heightInches The height of the policyholder in inches.
+     */
+    public void setHeightInches(double heightInches) {
+        this.heightInches = heightInches;
+    }
+
+    /**
+     * Getter for the weight of the policyholder in pounds.
+     *
+     * @return The weight of the policyholder in pounds.
+     */
+    public double getWeightPounds() {
+        return weightPounds;
+    }
+
+    /**
+     * Setter for the weight of the policyholder in pounds.
+     *
+     * @param weightPounds The weight of the policyholder in pounds.
+     */
+    public void setWeightPounds(double weightPounds) {
+        this.weightPounds = weightPounds;
+    }
+
+    /**
+     * Getter for the BMI (Body Mass Index) of the policyholder.
+     *
+     * @return The BMI of the policyholder.
      */
     public double getBMI() {
         return bmi;
     }
 
     /**
-     * Getter for policy price.
+     * Getter for the price of the policy.
      *
      * @return The price of the policy.
      */
@@ -97,7 +221,7 @@ public class Policy {
         return policyPrice;
     }
 
-    // Similar documentation comments for other methods...
+    // Other Methods
 
     /**
      * Calculates the BMI (Body Mass Index) of the policyholder.
