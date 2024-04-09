@@ -29,6 +29,9 @@ public class Demo {
         }
 
         // Output
+        int smokerCount = 0;
+        int nonSmokerCount = 0;
+
         for (Policy policy : policies) {
             System.out.println("Policy Number: " + policy.getPolicyNumber());
             System.out.println("Provider Name: " + policy.getProviderName());
@@ -40,6 +43,17 @@ public class Demo {
             System.out.println("Policyholder’s Weight: " + policy.getWeightPounds() + " pounds");
             System.out.printf("Policyholder’s BMI: %,.2f\n", policy.getBMI());
             System.out.printf("Policy Price: $%,.2f\n\n", policy.getPolicyPrice());
+
+            // Counting smokers and non-smokers
+            if (policy.getSmokingStatus().equalsIgnoreCase("smoker")) {
+                smokerCount++;
+            } else if (policy.getSmokingStatus().equalsIgnoreCase("non-smoker")) {
+                nonSmokerCount++;
+            }
         }
+
+        // Display smoker and non-smoker counts
+        System.out.println("Number of Policyholders who are smokers: " + smokerCount);
+        System.out.println("Number of Policyholders who are non-smokers: " + nonSmokerCount);
     }
 }
