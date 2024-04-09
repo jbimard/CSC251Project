@@ -1,5 +1,5 @@
 public class Policy {
-    // Attributes
+    // Attribute
     private int policyNumber;
     private String providerName;
     private String policyholderFirstName;
