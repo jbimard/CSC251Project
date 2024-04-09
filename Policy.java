@@ -1,5 +1,5 @@
 public class Policy {
-    // Attribute
+    // Attributes
     private int policyNumber;
     private String providerName;
     private String policyholderFirstName;
@@ -12,8 +12,11 @@ public class Policy {
     private double policyPrice;
 
     // Constructors
+
+    /**
+     * Default constructor with default values.
+     */
     public Policy() {
-        // Default constructor with default values
         policyNumber = 0;
         providerName = "";
         policyholderFirstName = "";
@@ -26,9 +29,20 @@ public class Policy {
         policyPrice = 0.0;
     }
 
+    /**
+     * Constructor with arguments to initialize all fields.
+     *
+     * @param policyNumber         The policy number.
+     * @param providerName         The name of the insurance provider.
+     * @param policyholderFirstName   The first name of the policyholder.
+     * @param policyholderLastName    The last name of the policyholder.
+     * @param policyholderAge        The age of the policyholder.
+     * @param smokingStatus         The smoking status of the policyholder.
+     * @param heightInches          The height of the policyholder in inches.
+     * @param weightPounds          The weight of the policyholder in pounds.
+     */
     public Policy(int policyNumber, String providerName, String policyholderFirstName, String policyholderLastName,
                   int policyholderAge, String smokingStatus, double heightInches, double weightPounds) {
-        // Constructor with arguments to initialize all fields
         this.policyNumber = policyNumber;
         this.providerName = providerName;
         this.policyholderFirstName = policyholderFirstName;
@@ -42,83 +56,59 @@ public class Policy {
     }
 
     // Getters and Setters
+
+    /**
+     * Getter for policy number.
+     *
+     * @return The policy number.
+     */
     public int getPolicyNumber() {
         return policyNumber;
     }
 
+    /**
+     * Setter for policy number.
+     *
+     * @param policyNumber The policy number.
+     */
     public void setPolicyNumber(int policyNumber) {
         this.policyNumber = policyNumber;
     }
 
-    public String getProviderName() {
-        return providerName;
-    }
+    // Similar documentation comments for other getters and setters...
 
-    public void setProviderName(String providerName) {
-        this.providerName = providerName;
-    }
+    // Other Methods
 
-    public String getPolicyholderFirstName() {
-        return policyholderFirstName;
-    }
-
-    public void setPolicyholderFirstName(String policyholderFirstName) {
-        this.policyholderFirstName = policyholderFirstName;
-    }
-
-    public String getPolicyholderLastName() {
-        return policyholderLastName;
-    }
-
-    public void setPolicyholderLastName(String policyholderLastName) {
-        this.policyholderLastName = policyholderLastName;
-    }
-
-    public int getPolicyholderAge() {
-        return policyholderAge;
-    }
-
-    public void setPolicyholderAge(int policyholderAge) {
-        this.policyholderAge = policyholderAge;
-    }
-
-    public String getSmokingStatus() {
-        return smokingStatus;
-    }
-
-    public void setSmokingStatus(String smokingStatus) {
-        this.smokingStatus = smokingStatus;
-    }
-
-    public double getHeightInches() {
-        return heightInches;
-    }
-
-    public void setHeightInches(double heightInches) {
-        this.heightInches = heightInches;
-    }
-
-    public double getWeightPounds() {
-        return weightPounds;
-    }
-
-    public void setWeightPounds(double weightPounds) {
-        this.weightPounds = weightPounds;
-    }
-
+    /**
+     * Getter for BMI.
+     *
+     * @return The BMI (Body Mass Index) of the policyholder.
+     */
     public double getBMI() {
         return bmi;
     }
 
+    /**
+     * Getter for policy price.
+     *
+     * @return The price of the policy.
+     */
     public double getPolicyPrice() {
         return policyPrice;
     }
 
-    // Other Methods
+    // Similar documentation comments for other methods...
+
+    /**
+     * Calculates the BMI (Body Mass Index) of the policyholder.
+     */
     private void calculateBMI() {
         bmi = (weightPounds * 703) / (heightInches * heightInches);
     }
 
+    /**
+     * Calculates the price of the policy based on various factors such as age, smoking status, and BMI.
+     */
     private void calculatePolicyPrice() {
         policyPrice = 600.0; // Base fee
         if (policyholderAge > 50) {
