@@ -76,4 +76,18 @@ public class PolicyHolder {
     private void calculateBMI() {
         bmi = (weightPounds * 703) / (heightInches * heightInches);
     }
+
+    // toString method
+    @Override
+    public String toString() {
+        return "PolicyHolder{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", smokingStatus='" + smokingStatus + '\'' +
+                ", heightInches=" + heightInches +
+                ", weightPounds=" + weightPounds +
+                ", bmi=" + bmi +
+                '}';
+    }
 }
