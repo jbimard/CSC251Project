@@ -55,5 +55,17 @@ public class Policy {
             double additionalFee = (policyHolder.getBMI() - 35) * 20;
             policyPrice += additionalFee; // Additional fee for BMI over 35
         }
+
     }
+
+     // toString method
+     @Override
+     public String toString() {
+         return "Policy{" +
+                 "policyNumber=" + policyNumber +
+                 ", providerName='" + providerName + '\'' +
+                 ", policyHolder=" + policyHolder +
+                 ", policyPrice=" + policyPrice +
+                 '}';
+     }
 }
