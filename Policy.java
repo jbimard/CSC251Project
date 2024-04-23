@@ -8,7 +8,13 @@ public class Policy {
     private PolicyHolder policyHolder; // Association with PolicyHolder
     private double policyPrice;
 
-    // Constructor
+    /**
+     * Constructor to create a new Policy object with the specified details.
+     * 
+     * @param policyNumber the unique number of the policy
+     * @param providerName the name of the provider issuing the policy
+     * @param policyHolder the PolicyHolder object containing the details of the person holding the policy
+     */
     public Policy(int policyNumber, String providerName, PolicyHolder policyHolder) {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
@@ -60,8 +66,12 @@ public class Policy {
             policyPrice += additionalFee; // Additional fee for BMI over 35
         }
      }
-     
-    // Static method to get the count of Policy objects
+
+      /**
+     * Retrieves the total count of Policy objects created.
+     * 
+     * @return the total number of policies created
+     */
     public static int getPolicyCount() {
         return policyCount;
     }
@@ -69,11 +79,15 @@ public class Policy {
      // toString method
      @Override
      public String toString() {
-         return "Policy{" +
-                 "policyNumber=" + policyNumber +
-                 ", providerName='" + providerName + '\'' +
-                 ", policyHolder=" + policyHolder +
-                 ", policyPrice=" + policyPrice +
-                 '}';
+         return "Policy Number: " + policyNumber + "\n" +
+                "Provider Name: " + providerName + "\n" +
+                "Policyholder's First Name: " + policyHolder.getFirstName() + "\n" +
+                "Policyholder's Last Name: " + policyHolder.getLastName() + "\n" +
+                "Policyholder's Age: " + policyHolder.getAge() + "\n" +
+                "Policyholder's Smoking Status (Y/N): " + policyHolder.getSmokingStatus() + "\n" +
+                "Policyholder's Height: " + policyHolder.getHeightInches() + " inches\n" +
+                "Policyholder's Weight: " + policyHolder.getWeightPounds() + " pounds\n" +
+                "Policyholder's BMI: " + String.format("%.2f", policyHolder.getBMI()) + "\n" +
+                "Policy Price: $" + String.format("%.2f", policyPrice) + "\n\n";
      }
 }
