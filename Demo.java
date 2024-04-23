@@ -7,6 +7,8 @@ public class Demo {
     public static void main(String[] args) {
         // ArrayList to store Policy objects
         ArrayList<Policy> policies = new ArrayList<>();
+        int smokerCount = 0;
+        int nonSmokerCount = 0;
 
         // Read from the text file
         try (Scanner fileScanner = new Scanner(new File("PolicyInformation.txt"))) {
@@ -20,44 +22,36 @@ public class Demo {
                 double height = Double.parseDouble(fileScanner.nextLine());
                 double weight = Double.parseDouble(fileScanner.nextLine());
 
-                //make sure we haven't hit the end of the file before trying to skip the blank line
-                if(fileScanner.hasNext())
-                    fileScanner.nextLine();
+                // Skip the blank line
+                if(fileScanner.hasNextLine()) {
+                    fileScanner.nextLine(); // Skip the blank line
+                }
                 
-                // Create Policy object and add it to the ArrayList
-                Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
+                // Create PolicyHolder and Policy objects
+                PolicyHolder policyHolder = new PolicyHolder(firstName, lastName, age, smokingStatus, height, weight);
+                Policy policy = new Policy(policyNumber, providerName, policyHolder);
                 policies.add(policy);
+
+                // Increment smoker or non-smoker count
+                if(smokingStatus.equalsIgnoreCase("smoker")) {
+                    smokerCount++;
+                } else {
+                    nonSmokerCount++;
+                }
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
         }
 
         // Output
-        int smokerCount = 0;
-        int nonSmokerCount = 0;
-
         for (Policy policy : policies) {
-            System.out.println("Policy Number: " + policy.getPolicyNumber());
-            System.out.println("Provider Name: " + policy.getProviderName());
-            System.out.println("Policyholder’s First Name: " + policy.getPolicyholderFirstName());
-            System.out.println("Policyholder’s Last Name: " + policy.getPolicyholderLastName());
-            System.out.println("Policyholder’s Age: " + policy.getPolicyholderAge());
-            System.out.println("Policyholder’s Smoking Status: " + policy.getSmokingStatus());
-            System.out.println("Policyholder’s Height: " + policy.getHeightInches() + " inches");
-            System.out.println("Policyholder’s Weight: " + policy.getWeightPounds() + " pounds");
-            System.out.printf("Policyholder’s BMI: %,.2f\n", policy.getBMI());
-            System.out.printf("Policy Price: $%,.2f\n\n", policy.getPolicyPrice());
-
-            // Counting smokers and non-smokers
-            if (policy.getSmokingStatus().equalsIgnoreCase("smoker")) {
-                smokerCount++;
-            } else if (policy.getSmokingStatus().equalsIgnoreCase("non-smoker")) {
-                nonSmokerCount++;
-            }
+            System.out.println(policy); // Implicitly calls the toString() method of Policy class
         }
 
-        // Display smoker and non-smoker counts
-        System.out.println("Number of Policyholders who are smokers: " + smokerCount);
-        System.out.println("Number of Policyholders who are non-smokers: " + nonSmokerCount);
+        // Display the number of policies created
+        System.out.println("Total number of policies: " + Policy.getPolicyCount());
+        // Display the count of policies with smokers and non-smokers
+        System.out.println("Number of policies with a smoker: " + smokerCount);
+        System.out.println("Number of policies with a non-smoker: " + nonSmokerCount);
     }
 }
