@@ -1,4 +1,7 @@
 public class Policy {
+    // Static field to keep track of the number of Policy objects created
+    private static int policyCount = 0;
+
     // Attributes related to the policy itself
     private int policyNumber;
     private String providerName;
@@ -11,6 +14,7 @@ public class Policy {
         this.providerName = providerName;
         this.policyHolder = policyHolder;
         calculatePolicyPrice();
+        policyCount++;
     }
 
     // Getters and Setters for Policy attributes
@@ -55,7 +59,11 @@ public class Policy {
             double additionalFee = (policyHolder.getBMI() - 35) * 20;
             policyPrice += additionalFee; // Additional fee for BMI over 35
         }
-
+     }
+     
+    // Static method to get the count of Policy objects
+    public static int getPolicyCount() {
+        return policyCount;
     }
 
      // toString method
