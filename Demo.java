@@ -20,6 +20,10 @@ public class Demo {
                 double height = Double.parseDouble(fileScanner.nextLine());
                 double weight = Double.parseDouble(fileScanner.nextLine());
 
+                //make sure we haven't hit the end of the file before trying to skip the blank line
+                if(fileScanner.hasNext())
+                    fileScanner.nextLine();
+                
                 // Create Policy object and add it to the ArrayList
                 Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
                 policies.add(policy);
